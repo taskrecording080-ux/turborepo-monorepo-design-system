@@ -1,0 +1,2 @@
+/* Declared FIRST so the cascade order is explicit: later layers beat earlier ones, no !important needed. */
+@layer reset, tokens, base, components, utilities;

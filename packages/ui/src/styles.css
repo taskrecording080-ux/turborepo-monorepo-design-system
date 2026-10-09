@@ -1,0 +1,137 @@
+/* Component styles. Everything reads semantic tokens (var(--color-*)), never raw hex. */
+@layer components {
+	.ds-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-2);
+		border: 1px solid transparent;
+		border-radius: var(--radius-md);
+		font: inherit;
+		font-size: var(--font-size-md);
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.ds-button--md {
+		min-height: 2.5rem;
+		padding-inline: var(--space-4);
+	}
+	.ds-button--sm {
+		min-height: 2rem;
+		padding-inline: var(--space-3);
+		font-size: var(--font-size-sm);
+	}
+	.ds-button--primary {
+		background: var(--color-primary);
+		color: var(--color-primary-fg);
+	}
+	.ds-button--outline {
+		background: transparent;
+		color: var(--color-fg);
+		border-color: var(--color-border);
+	}
+	.ds-button:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.ds-button:focus-visible,
+	.ds-tabs__trigger:focus-visible,
+	.ds-disclosure__trigger:focus-visible,
+	.ds-field__input:focus-visible {
+		outline: 3px solid var(--color-primary);
+		outline-offset: 2px;
+	}
+	.ds-dialog__overlay {
+		position: fixed;
+		inset: 0;
+		background: rgb(0 0 0 / 0.5);
+	}
+	.ds-dialog__content {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: min(32rem, calc(100vw - 2rem));
+		padding: var(--space-6);
+		background: var(--color-bg);
+		color: var(--color-fg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+	}
+	.ds-dialog__title {
+		margin: 0 0 var(--space-2);
+		font-size: 1.25rem;
+	}
+	.ds-dialog__description {
+		margin: 0 0 var(--space-4);
+	}
+	.ds-tabs__list {
+		display: flex;
+		gap: var(--space-2);
+		border-bottom: 1px solid var(--color-border);
+	}
+	.ds-tabs__trigger {
+		padding: var(--space-2) var(--space-4);
+		background: none;
+		border: 0;
+		color: var(--color-fg);
+		font: inherit;
+		cursor: pointer;
+		border-bottom: 3px solid transparent;
+	}
+	.ds-tabs__trigger[data-state='active'] {
+		border-bottom-color: var(--color-primary);
+		font-weight: 600;
+	}
+	.ds-tabs__content {
+		padding: var(--space-4) 0;
+	}
+	.ds-disclosure__trigger {
+		width: 100%;
+		text-align: start;
+		padding: var(--space-3);
+		font: inherit;
+		cursor: pointer;
+		background: var(--color-muted);
+		color: var(--color-fg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+	}
+	.ds-disclosure__content {
+		padding: var(--space-3);
+	}
+	.ds-field {
+		display: grid;
+		gap: var(--space-1);
+	}
+	.ds-field__label {
+		font-weight: 600;
+	}
+	.ds-field__input {
+		min-height: 2.5rem;
+		padding-inline: var(--space-3);
+		font: inherit;
+		color: var(--color-fg);
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+	}
+	.ds-field__input[aria-invalid='true'] {
+		border-color: var(--color-danger);
+	}
+	.ds-field__hint {
+		margin: 0;
+		font-size: var(--font-size-sm);
+	}
+	.ds-field__error {
+		margin: 0;
+		font-size: var(--font-size-sm);
+		color: var(--color-danger);
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.ds-button,
+		.ds-tabs__trigger {
+			transition: background-color 120ms, border-color 120ms;
+		}
+	}
+}

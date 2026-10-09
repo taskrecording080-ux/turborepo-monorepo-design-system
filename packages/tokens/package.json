@@ -1,0 +1,14 @@
+{
+	"name": "@acme/tokens",
+	"version": "1.0.0",
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		"./tokens.css": "./dist/tokens.css"
+	},
+	"scripts": {
+		"build": "node scripts/build.mjs"
+	}
+}

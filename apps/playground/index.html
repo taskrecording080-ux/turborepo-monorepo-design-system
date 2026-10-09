@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="acme" data-theme="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Turborepo Design System</title>
+		<script>
+			// Runs before first paint: apply saved (or system) theme + brand to avoid a flash of the wrong theme.
+			try {
+				var t =
+					localStorage.getItem('theme') ||
+					(matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light');
+				var b = localStorage.getItem('brand') || 'acme';
+				document.documentElement.dataset.theme = t;
+				document.documentElement.dataset.brand = b;
+			} catch (e) {}
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
+</html>
